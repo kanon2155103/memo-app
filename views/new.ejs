@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Kanon's Memo</title>
+		<link rel="icon" href="/images/black-cat.png">
+		<link rel="stylesheet" href="/css/style.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	</head>
+<body>
+	<header>
+		<a href="/index" class="header-logo new-header-logo">Kanon's Memo</a>
+	</header>
+	<div class="new-container">
+		<form action="/create" method="post" class="submit">
+			<div class="memo-wrapper">
+				<input class="title-area input" name="memoTitle" type="text" placeholder="Title">
+				<input type="text" name="dummy" style="display: none;">
+				<textarea class="content-area input" name="memoContent" placeholder="Text"></textarea>
+			</div>
+			<div class="menu-wrapper">
+				<input type="button" onclick="submit();" class="save-button" value="Save">
+				<a href="/index" class="cancel-button">Cancel</a>
+			</div>
+		</form>
+	</div>
+	<script>
+		$(function($) {
+			$('.input').keydown(function(e) {
+				if(event.ctrlKey) {
+					if (e.keyCode === 13 && $(this).val()) {
+						$('.submit').submit();
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>
