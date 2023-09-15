@@ -12,8 +12,10 @@ html {
 }
 
 body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 	margin: 0;
-	min-height: 100%;
 	background-color: #ffeeee;
 	background-image: linear-gradient(0deg, transparent calc(100% - 1px), #fff calc(100% - 1px)),
 	linear-gradient(90deg, transparent calc(100% - 1px), #fff calc(100% - 1px));
@@ -21,6 +23,7 @@ body {
 	background-repeat: repeat;
 	background-position: center center;
 	color: #6b1d1e;
+	overflow-y: hidden;
 }
 
 ul, li {
@@ -54,20 +57,32 @@ input, textarea {
 }
 
 
-/* header */
+/* header, main */
 header {
+	top: 0;
+	position: fixed;
+	z-index: 10;
+	width: 100%;
 	height: 60px;
 	background-color: #ffffff;
 	border-bottom: 1px solid #f9dee0;
 }
 
-.header-logo{
+.header-logo {
 	margin-left: 60px;
 	font-weight: 600;
 	font-size: 1.25em;
 	line-height: 60px;
 	color: #6b1d1e;
 	display: inline;
+}
+
+main {
+	height: 100%;
+	display: block;
+	flex: 1 0 auto;
+	padding-top: 60px;
+	overflow-y: scroll;
 }
 
 
@@ -204,16 +219,17 @@ header {
 }
 
 .menu-content {
+	z-index: 9;
 	display: none;
 	margin: 0;
 	padding: 0;
-	position: absolute;
+	position: sticky;
 }
 
 .icon-area:hover .menu-content {
 	display: block;
 	width: 120px;
-  transform: translateX(calc(-50% + 6px));
+	transform: translateX(calc(-50% + 6px));
 	margin-top: 12px;
 	overflow: hidden;
 	background-color: #fff;
@@ -240,11 +256,11 @@ header {
 	margin: 0 auto;
 	border: none;
 	outline: none;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 0;
 	font-size: 0.75em;
 	letter-spacing: 0;
 	color: #D4BAC0;
@@ -262,7 +278,11 @@ header {
 }
 
 .footer {
+	z-index: 8;
+	width: 100%;
 	height: 60px;
+	top: 100vh;
+	position: sticky;
 }
 
 
@@ -283,7 +303,7 @@ header {
 	background-color: #ffffff;
 	border-radius: 2px 2px 0 0;
 	padding: 0 60px;
-	min-height: calc(100vh - 90px);
+	min-height: calc(100vh - 180px);
 	box-sizing: border-box;
 	border: 1px solid #ffeeee;
 }
@@ -300,12 +320,22 @@ header {
 .content-area {
 	border: none;
 	outline: none;
-	resize: none;;
+	resize: none;
 	overflow-y: auto;
 	margin: 40px 10px;
 	min-height: 330px;
 	width: 100%;
 	display: inline-block;
+}
+
+.content-area::-webkit-scrollbar {
+	width: auto;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	box-shadow: inset 0 0 10px 10px #dddddd;
+	border: solid 6px transparent;
 }
 
 .menu-wrapper {
@@ -317,11 +347,11 @@ header {
 	border-top: 1px solid #f9dee0;
 	background-color: #ffffff;
 	width: 100%;
-	position: absolute;
 	bottom: 0;
 	left: 0;
-	right: 0;
-	margin: auto;
+	right: 16px;
+	display: flex;
+	margin: 0 auto;
 }
 
 .save-button, .cancel-button {

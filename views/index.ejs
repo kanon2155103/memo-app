@@ -13,45 +13,46 @@
 	<header>
 		<a href="" class="header-logo">Kanon's Memo</a>
 	</header>
-	<div class="index-container">
-		<div class="container-header">
-			<div class="container-title">
-				<h1>Memo List</h1>
-				<img src="/images/black-cat.png" alt="S-cat" class="cat-image">
+	<main>
+		<div class="index-container">
+			<div class="container-header">
+				<div class="container-title">
+					<h1>Memo List</h1>
+					<img src="/images/black-cat.png" alt="S-cat" class="cat-image">
+				</div>
+				<a href="/new" class="new-button">+ New</a>
 			</div>
-			<a href="/new" class="new-button">+ New</a>
-		</div>
-		<div class="index-table-wrapper">
-			<div class="table-head">
-				<span class="title-column">Name</span>
-				<span class="modified-column">Last Modified</span>
-			</div>
-			<ul class="table-body">
-				<% memos.forEach((memo) => { %>
-					<li>
-						<span class="title-column"><%= memo.title %></span>
-						<div class="items">
-							<span class="modified-column"><%= memo.modified %></span>
-							<div class="icon-area">
-								<div class="menu-icon">
-									<div></div>
-									<div></div>
-									<div></div>
+			<div class="index-table-wrapper">
+				<div class="table-head">
+					<span class="title-column">Name</span>
+					<span class="modified-column">Last Modified</span>
+				</div>
+				<ul class="table-body">
+					<% memos.forEach((memo) => { %>
+						<li>
+							<span class="title-column"><%= memo.title %></span>
+							<div class="items">
+								<span class="modified-column"><%= memo.modified %></span>
+								<div class="icon-area">
+									<div class="menu-icon">
+										<div></div>
+										<div></div>
+										<div></div>
+									</div>
+									<ul class="menu-content">
+										<li><a href="/edit/<%= memo.id %>">Edit</a></li>
+										<li><form action="/delete/<%= memo.id %>" method="post">
+												<input type="submit" value="Dlete">
+											</form></li>
+									</ul>
 								</div>
-								<ul class="menu-content">
-									<li><a href="/edit/<%= memo.id %>">Edit</a></li>
-									<li><form action="/delete/<%= memo.id %>" method="post">
-											<input type="submit" value="Dlete">
-										</form></li>
-								</ul>
 							</div>
-						</div>
-					</li>
-					<% }); %>
-			</ul>
-			<div class="footer"></div>
+						</li>
+						<% }); %>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<script></script>
+		<div class="footer"></div>
+	</main>
 </body>
 </html>
