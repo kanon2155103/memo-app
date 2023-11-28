@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('./db')
+const db = require('./module')
 const app = express();
 
 app.use(express.static('public'));

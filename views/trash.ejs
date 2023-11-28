@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kanon's Memo</title>
+	<link rel="icon" href="/images/black-cat.png">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<%- include('header'); %>
+	<main>
+		<div class="index-container">
+			<div class="container-header">
+				<div class="container-title">
+					<h1>Trash List</h1>
+					<img src="/images/pink-black-cat.png" alt="S-cat" class="cat-image">
+				</div>
+				<form action="/empty" method="post">
+						<input type="submit"value="- Empty"class="new-button">
+					</form>
+			</div>
+			<div class="index-table-wrapper">
+				<div class="table-head">
+					<span class="title-column">Name</span>
+					<span class="modified-column">Last Modified</span>
+				</div>
+				<ul class="table-body">
+					<% memos.forEach((memo) => { %>
+						<li>
+							<span class="title-column"><%= memo.title %></span>
+							<div class="items">
+								<span class="modified-column"><%= memo.modified %></span>
+								<div class="icon-area">
+									<div class="menu-icon">
+										<div></div>
+										<div></div>
+										<div></div>
+									</div>
+									<ul class="menu-content">
+										<li><form action="/restore/<%= memo.id %>" method="post">
+												<input type="submit" value="Restore">
+											</form></li>
+										<li><form action="/delete/<%= memo.id %>" method="post">
+												<input type="submit" value="Delete">
+											</form></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<% }); %>
+				</ul>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</main>
+</body>
+</html>
