@@ -7,12 +7,9 @@
 	<title>Kanon's Memo</title>
 	<link rel="icon" href="/images/black-cat.png">
 	<link rel="stylesheet" href="/css/style.css">
-	<script src="/app.js"></script>
 </head>
 <body>
-	<header>
-		<a href="" class="header-logo">Kanon's Memo</a>
-	</header>
+	<%- include('header'); %>
 	<main>
 		<div class="index-container">
 			<div class="container-header">
@@ -41,8 +38,8 @@
 									</div>
 									<ul class="menu-content">
 										<li><a href="/edit/<%= memo.id %>">Edit</a></li>
-										<li><form action="/delete/<%= memo.id %>" method="post">
-												<input type="submit" value="Dlete">
+										<li><form action="/remove/<%= memo.id %>" method="post">
+												<input type="submit" value="Remove">
 											</form></li>
 									</ul>
 								</div>

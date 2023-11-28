@@ -77,6 +77,10 @@ header {
 	display: inline;
 }
 
+.header-logo:hover {
+	color: #D2585A;
+}
+
 main {
 	height: 100%;
 	display: block;
@@ -203,6 +207,7 @@ main {
 	width: 20%;
 	padding: 12px 10px;
 	margin: auto;
+	height: 1.67lh; /* Or 2.85em */
 }
 
 .menu-icon div {
@@ -287,10 +292,6 @@ main {
 
 
 /* new, edit */
-.new-header-logo:hover {
-	color: #D2585A;
-}
-
 .new-container {
 	margin-top: 30px;
 }
