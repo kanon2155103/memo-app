@@ -82,9 +82,8 @@ header {
 }
 
 main {
-	height: 100%;
-	display: block;
-	flex: 1 0 auto;
+	display: flex;
+	flex-flow: column;
 	padding-top: 60px;
 	overflow-y: scroll;
 }
@@ -92,12 +91,12 @@ main {
 
 /* index */
 .index-container {
+	flex: 1;
 	width: 80%;
 	min-width: 360px;
 	max-width: 720px;
 	margin: 0 auto;
 	margin-top: 60px;
-	margin-bottom: 60px;
 }
 
 .container-header {
@@ -282,12 +281,18 @@ main {
 	color: #FF8080;
 }
 
+/* footer */
 .footer {
-	z-index: 8;
+	bottom: 0;
+	text-align: center;
+	height: 90px;
 	width: 100%;
-	height: 60px;
-	top: 100vh;
-	position: sticky;
+}
+.copy-right {
+	color: #fff;
+	line-height: 90px;
+	font-weight: 600;
+	background-color: #ffeeee;
 }
 
 

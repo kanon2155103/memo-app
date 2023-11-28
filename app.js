@@ -39,7 +39,6 @@ app.post('/create', (req, res) => {
 	);
 });
 
-
 // メモの編集ページを取得
 app.get('/edit/:id', (req, res) => {
 	connection.query(
