@@ -1,11 +1,11 @@
 const express = require('express');
-const db = require('./module')
+const mod = require('./module')
 const app = express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-const connection = db.connection;
+const connection = mod.connection;
 
 // ルートURLへのアクセスがあった際に/indexにリダイレクトする
 app.get('/', (req, res) => {
