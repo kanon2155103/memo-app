@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 // Memo Listの取得
 app.get('/index', (req, res) => {
 	connection.query(
-		'SELECT * FROM memos WHERE isRemoved = 0',
+		'SELECT * FROM memos WHERE is_removed = 0',
 		(error, results) => {
 			console.log(results);
 			res.render('index.ejs', {memos: results});
@@ -64,7 +64,7 @@ app.post('/update/:id', (req, res) => {
 // Trash Listの取得
 app.get('/trash', (req, res) => {
 	connection.query(
-		'SELECT * FROM memos WHERE isRemoved = 1',
+		'SELECT * FROM memos WHERE is_removed = 1',
 		(error, results) => {
 			console.log(results);
 			res.render('trash.ejs', {memos: results});
@@ -76,7 +76,7 @@ app.get('/trash', (req, res) => {
 app.post('/remove/:id', (req, res) => {
 	const id = req.params.id;
 	connection.query(
-		'UPDATE memos SET isRemoved = 1 WHERE id = ?',
+		'UPDATE memos SET is_removed = 1 WHERE id = ?',
 		[id],
 		(error, results) => {
 			res.redirect('/index');
@@ -88,7 +88,7 @@ app.post('/remove/:id', (req, res) => {
 app.post('/restore/:id', (req, res) => {
 	const id = req.params.id;
 	connection.query(
-		'UPDATE memos SET isRemoved = 0 WHERE id = ?',
+		'UPDATE memos SET is_removed = 0 WHERE id = ?',
 		[id],
 		(error, results) => {
 			res.redirect('/trash');
@@ -111,7 +111,7 @@ app.post('/delete/:id', (req, res) => {
 // Trash Listを空にする
 app.post('/empty', (req, res) => {
 	connection.query(
-		'DELETE FROM memos WHERE isRemoved = 1',
+		'DELETE FROM memos WHERE is_removed = 1',
 		(error, results) => {
 			res.redirect('/trash');
 		}
