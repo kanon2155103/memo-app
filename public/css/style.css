@@ -22,7 +22,6 @@ body {
 	background-size: 16.68px 16.68px;
 	background-repeat: repeat;
 	background-position: center center;
-	color: #6b1d1e;
 	overflow-y: hidden;
 }
 
@@ -35,7 +34,6 @@ ul, li {
 a {
 	display: block;
 	text-decoration: none;
-	color: #6b1d1e;
 	font-size: 0.875em;
 }
 
@@ -69,11 +67,11 @@ header {
 }
 
 .header-logo {
-	margin-left: 60px;
+	margin-left: 8%;
 	font-weight: 600;
 	font-size: 1.25em;
 	line-height: 80px;
-	color: #6b1d1eed;
+	color: #7F2D2E;
 	display: inline;
 }
 
@@ -110,11 +108,17 @@ main {
 
 .container-title {
 	display: flex;
+	margin-left: 5px;
 }
 
 .container-title h1 {
-	color: #6b1d1e;
-
+	color: #7f2d2ee2;
+	font-weight: 500;
+	text-shadow:
+	0.4px 0.4px 0#6b1d1e, -0.4px -0.4px 0#6b1d1e,
+	-0.4px 0.4px 0#6b1d1e, 0.4px -0.4px 0#6b1d1e,
+	0px 0.4px 0#6b1d1e,  0 -0.4px 0#6b1d1e,
+	-0.4px 0 0#6b1d1e, 0.4px 0 0#6b1d1e;
 }
 
 .cat-image {
@@ -133,7 +137,7 @@ main {
 	margin-left: 0.6em;
 	border-radius: 40px;
 	font-size: 0.875em;
-	padding: 0 1em;
+	padding: 0 0.8em;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
@@ -142,7 +146,7 @@ main {
 }
 
 .container-header .move-button {
-	background-color: #ffffffc1;
+	background-color: #ffffffb8;
 	color: #ff8094;
 }
 
@@ -192,6 +196,18 @@ main {
 	border: 1.2px solid #fdeeee;
 	border-top: none;
 
+}
+
+.nobody {
+	height: 18em;
+	text-align: center;
+}
+
+.nobody-text {
+	font-size: 2em;
+	line-height: 16rem;
+	color: #c6aab1;
+	-webkit-text-stroke: 0.08px #ffffff;
 }
 
 .table-body li {
@@ -403,4 +419,13 @@ main {
 
 .save-button:hover, .cancel-button:hover {
 	color: #FF8080;
+}
+
+@media screen and (max-width: 500px) {
+	header {
+		text-align: center;
+	}
+	.header-logo{
+		margin-left: 0;
+	}
 }

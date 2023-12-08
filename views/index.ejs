@@ -28,27 +28,33 @@
 					<span class="modified-column">Last Modified</span>
 				</div>
 				<ul class="table-body">
-					<% memos.forEach((memo) => { %>
-						<li>
-							<span class="title-column"><%= memo.title %></span>
-							<div class="items">
-								<span class="modified-column"><%= memo.modified_stamp %></span>
-								<div class="icon-area">
-									<div class="menu-icon">
-										<div></div>
-										<div></div>
-										<div></div>
+					<% if (memos.length === 0) { %>
+						<div class="nobody">
+							<span class="nobody-text">Nobody</span>
+						</div>
+						<% } else { %>
+							<% memos.forEach((memo) => { %>
+								<li>
+									<span class="title-column"><%= memo.title %></span>
+									<div class="items">
+										<span class="modified-column"><%= memo.modified_stamp %></span>
+										<div class="icon-area">
+											<div class="menu-icon">
+												<div></div>
+												<div></div>
+												<div></div>
+											</div>
+											<ul class="menu-content">
+												<li><a href="/edit/<%= memo.id %>">Edit</a></li>
+												<li><form action="/remove/<%= memo.id %>" method="post">
+														<input type="submit" value="Remove">
+													</form></li>
+											</ul>
+										</div>
 									</div>
-									<ul class="menu-content">
-										<li><a href="/edit/<%= memo.id %>">Edit</a></li>
-										<li><form action="/remove/<%= memo.id %>" method="post">
-												<input type="submit" value="Remove">
-											</form></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<% }); %>
+								</li>
+								<% }); %>
+						<% } %>
 				</ul>
 			</div>
 		</div>

@@ -30,29 +30,35 @@
 					<span class="modified-column">Last Modified</span>
 				</div>
 				<ul class="table-body">
-					<% memos.forEach((memo) => { %>
-						<li>
-							<span class="title-column"><%= memo.title %></span>
-							<div class="items">
-								<span class="modified-column"><%= memo.modified_stamp %></span>
-								<div class="icon-area">
-									<div class="menu-icon">
-										<div></div>
-										<div></div>
-										<div></div>
-									</div>
-									<ul class="menu-content">
-										<li><form action="/restore/<%= memo.id %>" method="post">
-												<input type="submit" value="Restore">
-											</form></li>
-										<li><form action="/delete/<%= memo.id %>" method="post">
-												<input type="submit" value="Delete">
-											</form></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<% }); %>
+					<% if (memos.length === 0) { %>
+						<div class="nobody">
+							<p class="nobody-text">Nobody</p>
+						</div>
+						<% } else { %>
+							<% memos.forEach((memo) => { %>
+									<li>
+										<span class="title-column"><%= memo.title %></span>
+										<div class="items">
+											<span class="modified-column"><%= memo.modified_stamp %></span>
+											<div class="icon-area">
+												<div class="menu-icon">
+													<div></div>
+													<div></div>
+													<div></div>
+												</div>
+												<ul class="menu-content">
+													<li><form action="/restore/<%= memo.id %>" method="post">
+															<input type="submit" value="Restore">
+														</form></li>
+													<li><form action="/delete/<%= memo.id %>" method="post">
+															<input type="submit" value="Delete">
+														</form></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+							<% }); %>
+						<% } %>
 				</ul>
 			</div>
 		</div>
