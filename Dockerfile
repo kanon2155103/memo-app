@@ -12,15 +12,13 @@ WORKDIR /src/pg-app
 # Set production environment
 ENV NODE_ENV=production
 ARG YARN_VERSION=1.22.18
-RUN npm install -g yarn@$YARN_VERSION
 
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
 # Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install -y python-is-python3 pkg-config build-essential
+RUN apt-get update -qq && apt-get install -y python-is-python3 pkg-config build-essential
 
 # Install node modules
 COPY --link package.json yarn.lock .
@@ -35,7 +33,7 @@ COPY --link . .
 FROM base
 
 # Copy built application
-COPY --from=build /app /app
+COPY --from=build /src/pg-app /src/pg-app
 
 # Start the server by default, this can be overwritten at runtime
 CMD [ "yarn", "run", "start" ]
