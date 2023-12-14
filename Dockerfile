@@ -15,7 +15,7 @@ ARG YARN_VERSION=1.22.18
 
 
 # Throw-away build stage to reduce size of final image
-FROM base as build -debian
+FROM base as build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
